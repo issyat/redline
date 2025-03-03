@@ -70,7 +70,7 @@ const Films: React.FC = () => {
     return (
         <Grid container spacing={2} justifyContent="center" alignItems="center" wrap="wrap">
             {movies.map((media) => (
-                <Grid size={{xs:6,sm:6,md:3,lg:2}} key={media.id} mt={2} onClick={() => handleMediaClick(media.id)}>
+                <Grid size={{xs:6,sm:6,md:3,lg:2}}  key={media.id} mt={2} onClick={() => handleMediaClick(media.id)}>
                     <Box
                         sx={{
                             textAlign: "center",

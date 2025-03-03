@@ -4,7 +4,7 @@ import jjk from '../assets/images/jjk.jpg';
 import spiderverse from '../assets/images/spiderverse.jpg';
 import pikachu from '../assets/images/pikachu.jpg';
 import { useEffect, useState } from "react";
-import { CrewMember, getMediaVideos, getMovieCredits, getMovieDetails, getNowPlayingMovies, MediaItem, Video } from "../api/TmdbApi";
+import { CrewMember, getMediaVideos, getMovieCredits, getMovieDetails, getMoviesByGenre, getNowPlayingMovies, MediaItem, Video } from "../api/TmdbApi";
 
 // Define the style object for the modal
 const style = {
@@ -37,7 +37,7 @@ const Carousel = () => {
         const fetchMovies = async () => {
             try {
                 // Fetch now playing movies from TMDB
-                const data = await getNowPlayingMovies(1);
+                const data = await getMoviesByGenre(16);
                 setMovies(data.slice(0, 3)); // Get first 3 movies
                 setLoading(false);
             } catch (error) {

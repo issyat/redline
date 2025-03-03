@@ -5,10 +5,12 @@ import FeaturesTvSeries from './components/FeaturesTvSeries'
 import ShopMovies from './components/ShopMovies'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import AgeConfirmationModal from './components/AgeConfirmationModal'
 function App() {
 
   return (
     <>
+      <AgeConfirmationModal />
       <Header />
       <Films />
       <FeaturedMovies />
