@@ -32,19 +32,6 @@ const Footer = () => {
         fetchMovies();
     }, []);
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            try {
-                // Fetch now playing movies from TMDB
-                const data = await getNowPlayingMovies(1);
-                setMovies(data.slice(0, 3)); // Get first 6 movies
-            } catch (error) {
-                console.error("Error fetching movies:", error);
-            }
-        };
-
-        fetchMovies();
-    }, []);
 
     return (
         <Grid component={"footer"} sx={{ bgcolor: "black" }}>
@@ -106,7 +93,23 @@ const Footer = () => {
                     <Typography variant="h6" sx={{ p: 2, fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem", color: "whitesmoke" } }}>
                         Latest Movies
                     </Typography>
-                    
+                    {movies.map((media) => (
+                        <Grid display={"flex"} direction={"row"}>
+                            <Grid size={{ xs: 6, sm: 6, md: 3.5,}} key={media.id}>
+                                
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500${media.backdrop_path}`}
+                                        alt={media.title}
+                                        style={{ width: "100%", height: "auto", objectFit: "cover", maxHeight: "300px" }}
+                                    />
+                            </Grid>
+                            <Grid display={"flex"} justifyContent={"center"} alignItems={"center"}>
+                                <Typography variant="h6" sx={{ p: 2, fontSize: { xs: "1rem", sm: "0.75rem", md: "0.8rem", color: "whitesmoke" } }}>
+                                    {media.title}
+                                </Typography>
+                            </Grid>
+                            </Grid>
+                        ))}
 
                 </Grid>
 
@@ -145,7 +148,7 @@ const Footer = () => {
                             <Grid size={{ xs: 6, sm: 6, md: 3.5,}} key={media.id}>
                                 
                                     <img
-                                        src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
+                                        src={`https://image.tmdb.org/t/p/w780${media.poster_path}`}
                                         alt={media.title}
                                         style={{ width: "100%", height: "auto", objectFit: "cover", maxHeight: "300px" }}
                                     />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MediaItem, CastMember, CrewMember, Video } from '../api/TmdbApi';
-import { Backdrop, Box, Fade, Grid, Modal, Typography, CircularProgress } from '@mui/material';
+import { Backdrop, Box, Fade, Grid2 as Grid, Modal, Typography, CircularProgress } from '@mui/material';
 import { getNowPlayingMovies, getMovieDetails, getMovieCredits, getMediaVideos } from '../api/TmdbApi';
 
 const Films: React.FC = () => {
@@ -70,7 +70,7 @@ const Films: React.FC = () => {
     return (
         <Grid container spacing={2} justifyContent="center" alignItems="center" wrap="wrap">
             {movies.map((media) => (
-                <Grid item xs={6} sm={6} md={3} lg={2} key={media.id} mt={2} onClick={() => handleMediaClick(media.id)}>
+                <Grid size={{xs:6,sm:6,md:3,lg:2}} key={media.id} mt={2} onClick={() => handleMediaClick(media.id)}>
                     <Box
                         sx={{
                             textAlign: "center",
