@@ -6,11 +6,13 @@ import ShopMovies from './components/ShopMovies'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AgeConfirmationModal from './components/AgeConfirmationModal'
+import CookiesConsent from './components/CookiesConsent'
 function App() {
 
   return (
     <>
       <AgeConfirmationModal />
+      <CookiesConsent />
       <Header />
       <Films />
       <FeaturedMovies />
