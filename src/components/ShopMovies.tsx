@@ -74,7 +74,7 @@ const ShopMovies: React.FC = () => {
   };
 
   return (
-    <Box sx={{ pt: 4, pb: 6, px: 2 }}>
+    <Box sx={{ px: { xs: 2, sm: 4, md: 6 } }}>
 
       <Grid container display={"flex"} alignItems={"center"} spacing={2}>
         <Divider orientation="vertical" flexItem sx={{ bgcolor: "tomato", width: 10, height: "auto" }} />

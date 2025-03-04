@@ -1,10 +1,7 @@
 import { Box, Button, CircularProgress, Fade, Grid2 as Grid, Modal, Typography, Backdrop } from "@mui/material"
 import Slider from "react-slick"
-import jjk from '../assets/images/jjk.jpg';
-import spiderverse from '../assets/images/spiderverse.jpg';
-import pikachu from '../assets/images/pikachu.jpg';
 import { useEffect, useState } from "react";
-import { CrewMember, getMediaVideos, getMovieCredits, getMovieDetails, getMoviesByGenre, getNowPlayingMovies, MediaItem, Video } from "../api/TmdbApi";
+import { getMediaVideos, getPopularMovies, MediaItem, Video } from "../api/TmdbApi";
 
 // Define the style object for the modal
 const style = {
@@ -28,8 +25,6 @@ const Carousel = () => {
     const [open, setOpen] = useState(false);
     const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
     const [trailerKey, setTrailerKey] = useState<string | null>(null);
-    const [director, setDirector] = useState('N/A');
-    const [actors, setActors] = useState<{name: string}[]>([]);
     
     const imageBaseUrl = "https://image.tmdb.org/t/p/w780";
     
@@ -37,7 +32,7 @@ const Carousel = () => {
         const fetchMovies = async () => {
             try {
                 // Fetch now playing movies from TMDB
-                const data = await getMoviesByGenre(16);
+                const data = await getPopularMovies(2);
                 setMovies(data.slice(0, 3)); // Get first 3 movies
                 setLoading(false);
             } catch (error) {
@@ -72,7 +67,7 @@ const Carousel = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
         arrows: false
     };
     
